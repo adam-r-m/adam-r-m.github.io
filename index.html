@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-180171079-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-180171079-1');
+</script>
+
+
+
+        <meta charset="utf-8">
+        <meta name="description" content="I'm an assistant professor in the Department of Philosophy at the University of Manitoba.">
+        <meta name="author" content="Adam R. Murray">
+        <!-- Required in order for the mobile device to set the width properly-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	
+        <title>Adam Russell Murray</title>
+
+        <style>
+
+
+
+            /*The typical way to include some custom font. Note that for the most
+              cases you only need the "regular" version of the font, as each browser can extend
+              upon it to create bold and italic versions automatically*/
+            @font-face {
+                /*How you want this font to be named. Can be anything*/
+                font-family: "Inconsolata";
+                /*The path to the font file, relative to the file with the styling (currently it's this file: index.html)*/
+                src: url('./fonts/Inconsolata-Regular.ttf');
+            }
+
+            /*The same structure follows here*/
+            /*For better web-page load times I suggest to only leave one of the "main-text" fonts in here.
+             (ie: either Radley or SourceSerifPro, not both)*/
+
+		 @font-face {
+                font-family: "type";
+                src: url('./fonts/CourierPrime-Regular.ttf');
+            }
+
+            @font-face {
+                font-family: "Ubuntu";
+                src: url('./fonts/UbuntuMono-Regular.ttf');
+            }
+
+            /*The same structure follows here*/
+            @font-face {
+                font-family: "Garamond";
+                src: url('./fonts/EBGaramond-Regular.ttf');
+            }
+
+            /*The styling of the asterisk "tag" means that this styling will be applied to all of the
+             tags on the page. Every p, a, h1-h6, div, body, etc will have this style*/
+            * {
+                /*So we want all text on the page to be displayed with some
+specific font. We usea
+                 the name of the font we have included above in this property to set the custom font*/
+                font-family: "Garamond";
+                font-size: 16pt;
+                /*font-family: "Radley"; */
+            }
+
+            /*And now we set specific font styling for all h1 elements (the main heading on the web page)*/
+            h1 {
+                font-size:35pt;
+                color: #656565;
+                           }
+
+            h2 {font-size:22pt;}
+
+
+	    	a {text-decoration:none;
+               color: #4D5B5A;
+            }
+
+	    h3 {font-size:18pt;}
+
+
+	    	a {text-decoration:none;
+               color: #4D5B5A;
+            }
+
+
+
+
+            /*The tooltip is structured like <span class="tooltip">icon<span class="tooltiptext">the text</span></span>
+              This would set the style of "icon" text (which is usually a &#9156; symbol)*/
+            .tooltip {
+                /*To distinguish this symbol we set it to have some dotted border at the bottom:
+                 first set its weight (1px), then pattern (dotted), then color (black)*/
+                border-bottom: 1px;
+                /*To distinguish this symbol even more we set it to look bold*/
+                
+            }
+
+	/*This is the code you add to include the tooltip/abstract box: 
+	 <span class="tooltip">&#9156;<span class="tooltiptext">
+	This is about.... </span></span> */
+
+
+	
+
+            /*We are getting into the weird territory of CSS. This combination of selectors can be read as:
+             "for a tooltip that currently has mouse cursor over it, set the visibility property of its
+             child element with class tooltiptext to visible"
+             This does make sense, because <span class="tooltiptext"></span> in our structure (example above) is
+             always inside of <span class="tooltip">...</span>, which makes the former element to be the child
+             of the latter element*/
+            .tooltip:hover .tooltiptext {
+                visibility:visible;
+            }
+
+            /*Now we style the text of the tooltip*/
+            .tooltiptext {
+                /*Setting font-weight to normal, because otherwise it would be bold, since in our structure of the
+                 tooltip <span class="tooltiptext"></span> is a child of <span class="tooltip">...</span>, which would
+                 inherit the bold font-weight from .tooltip*/
+                font-weight:normal;
+ 	
+                /*We also set the font-size to be slightly smaller than the main text on the page for breaking contrast*/
+                font-size:10pt;
+
+                /*Optional: instead of aligning text to the left as we do by default, make it justified to the width*/
+                text-align:justify;
+
+                /*We set the border around the tooltiptext to break the contrast again. The order of parameters is the same
+                 as for the border-bottom example above*/
+                border: 2px solid black;
+
+                /*By default we make the tooltiptext invisible, since we want it to show only when the mouse is hovered
+                 on the tooltip*/
+                visibility:hidden;
+
+                /*Set background color explicitly, since otherwise it would be transparent*/
+                background-color: rgb(211,211,211);
+
+                /*z-index can be thought of as a property that describes the layering of elements.
+                 Elements with higher z-index will be drawn in front of the ones with lower z-index*/
+                z-index:1;
+
+                /*These require more detailed explanations*/
+                position:absolute;
+                left: 0;
+                padding:10px;
+                width:(100% - 20px);
+            }
+
+            .page {
+                /*sets the width of the current tag (div.page) to be 80% of body*/
+                width:80%;
+                padding-left:30px;
+            }
+
+            .column {
+                /*This new change also requires more detailed explanations*/
+                position:relative;
+
+                /*sets the current tag (div.column) to display inline i.e: the tags with this
+                 property (all div.column) will be positioned horizontally, rather than vertically*/
+                display:inline-block;
+
+                /*sets the content of this tag (div.column) to start at the top of the block, otherwise
+                 it would start from the bottom*/
+				vertical-align:top;
+
+                /*Makes a small margin (30px) on the right of the column*/
+                margin-right:30px;
+
+                /*sets the width of the current tag (div.column) to be 42.5% of its parent tag (div.page) width*/
+                width:42.5%;
+            }
+
+            /*When the screen width is less than 710px on any device (narrow page)*/
+            @media (max-width: 710px) {
+                .page {
+                    /* Our page layout is basically a single-column, so we want the page to cover the 100%
+                     width of the screen*/
+                    width: 100%;
+                    padding-left:0;
+                }
+
+                .column {
+                    /*We reset a bunch of properties, that were used on the desktop
+                     version, but are not required on the mobile. Plus we set the with
+                     of the column to 90% of the .page div*/
+                    display:block;
+                    width:90%;
+
+                    /*Using these two properties, we can align .column relative to .page
+                     so that it has equal margins on left and right (ie: it is centerd in .page)*/
+                    margin-left:auto;
+                    margin-right:auto;
+                }
+
+                /*Since the page's title is not a part of the column, we need to align it separately*/
+                h1 {
+                    text-align:center;
+                }
+            }
+
+            .cvbutton {
+            color: black;
+            }
+
+            .pic {
+            width: 90%;
+            height: 100%;
+            padding-left:10px;
+		image-orientation: from-image;
+	
+	    
+	
+            }
+
+            .wrapper {
+            width: 100%;
+            }
+
+		.container {
+		  display: flex;
+			}
+		.container.space-around {
+		  width: 60%;
+		 padding-left:0px;
+		 justify-left
+		 justify-content: space-around;
+
+		}
+
+		.container.space-between {  
+		 width: 80%;
+		  justify-content: space-between;
+			}
+        </style>
+    </head>
+
+
+
+
+    <body>
+        <div class="page">
+            <h1>Adam Russell Murray</h1>
+            <div class="column">
+				<p>
+				<h2>Bio</h2>
+				</p>
+				Thanks for visiting.
+				</p>
+				<p>
+				I'm an assistant professor in the <a href="http://umanitoba.ca/philosophy/" target="_blank">Department of Philosophy</a> at the <a href="http://umanitoba.ca/" target="_blank">University of Manitoba</a>.
+				</p>
+				<p>
+				Before coming to Manitoba, I was a lecturer in the <a href="http://philosophy.utoronto.ca/" target="_blank">Department of Philosophy</a> at the University of Toronto, where I also did my PhD.
+I work on topics at the intersection
+of logic, metaphysics, and philosophy of language. I wrote my  dissertation
+on the theoretical significance of context relativity for modal metaphysics,
+under the supervision of <a href="http://individual.utoronto.ca/jmwilson/"
+target="_blank">Jessica Wilson</a> and <a
+href="http://individual.utoronto.ca/benj/" target="_blank">Benj Hellie</a>.
+ 				</p>
+				<p>
+				 If you are a
+student looking for information about our undergraduate or
+
+graduate programs, feel free to
+drop me a line.  <a href="mailto:adam.murray@umanitoba.ca">
+				<img src="./icons/icons8-important-mail-20.png">
+				</a>	 
+
+				</p>
+
+<a class="cvbutton" href="./docs/cv_murray.pdf"
+target="_blank"><h2>CV</h2></a> 
+
+
+	<p>
+
+
+				<h2>Research</h2>
+
+				<h3>Edited book</h3>
+				With  <a
+href="https://sites.google.com/site/christillman/home" target="_blank">Chris
+Tillman</a>: <i>The Routledge Handbook
+of Propositions</i>. Forthcoming 2022. 
+				<p>
+
+
+
+				<h3>Papers</h3>
+			<a href="./docs/pdps.pdf" target="_blank">Propositional Dependence and
+Perspectival Shift</a>. 
+To appear in <i>The Routledge Handbook of
+Propositions</i>, edited by Chris Tillman and Adam Murray.  
+				</p>
+				<p>
+				
+
+<a href="./docs/rmm_ic.pdf" target="_blank">Relativized Metaphysical Modality:
+Index and Context</a> (with Benj Hellie and Jessica Wilson). In  <i>The
+Routledge Handbook of Modality</i>, edited by Otavio Bueno and Scott Shalkowski. 
+
+
+				</p>
+				<p>
+				2014. <a href="./docs/notoptimistic.pdf"
+target="_blank">Not the Optimistic Type</a> (with <a href="http://bdcaplan.ca/"
+target="_blank">Ben Caplan</a>, <a
+href="https://sites.google.com/site/christillman/home" target="_blank">Chris
+Tillman</a>, and <a href="https://sites.google.com/site/brianmcleanphilosophy/"
+target="_blank">Brian McLean</a>). <i>Canadian Journal of Philosophy</i> 43:575-589; Supplementary Volume on Propositions edited by
+Gurpreet Rattan and David Hunter. 
+				</p>
+				<p>
+				2013. <a href="./docs/seii.pdf"
+target="_blank">Spinoza on Essence and Ideal Individuation</a>. <i>Canadian Journal of Philosophy</i> 43:78-96.
+				</p>
+				<p>
+				2012. <a href="./docs/rmm.pdf"
+target="_blank">Relativized Metaphysical Modality</a> (with Jessica Wilson).
+<i>Oxford Studies in Metaphysics</i> 7:189-226, edited by Karen Bennett and Dean
+Zimmerman. 
+				</p>
+
+
+				<h3> In progress/unpublished</h3>
+
+				<p>
+				<i>Metaphysical Modality, Relativized</i> (book
+MS; co-authored with Benj Hellie and Jessica Wilson)
+
+				<p>
+				Further Considerations on Chisholm's Paradox: Reply to
+Jones  (email for draft)
+
+<p>
+				Property Actualism (email for draft)
+
+				<br>
+				<p>
+				Existence and Nonexistence in Modal
+				Perspectivism  (email for draft)
+				</p>
+				<p>
+				<a href="./docs/diss.pdf"
+				target="_blank">Perspectives on Modal Metaphysics</a> (PhD dissertation; 2018)
+				</p>
+
+
+            </div>
+            <div class="column">
+
+
+
+				<h2>Recent talks</h2>
+				Modality and Higher-order Dependence. Yonsei
+				Analytic Philosophy Workshop, August 2019. 
+				<p>
+							
+	Context, Modality, and Propositional Dependence. Birmingham Higher-Order Metaphysics
+				Workshop; University of Birmingham, June 2019. 
+				</p>
+				<p>
+				Symposium talk on the metaphysics of
+propositions.
+				Canadian Philosophical Association; UBC, June 2019. 
+				</p>
+				<p>
+				Symposium talk on Chisholm's Paradox. Pacific
+				APA; Vancouver, April 2019. 
+				</p>
+				<p>
+				Essence without Necessity (with Chris Tillman).
+				Department colloquium; UNLV, March 2019. 
+				</p>
+
+			
+					
+				
+
+		
+
+			
+	
+            		        <h2>Current teaching</h2>
+				
+				Intro epistemology/theory of knowledge (fall
+2021; syllabus)
+
+				<p>
+
+								
+				Introduction to logic/probability theory (fall
+2021; syllabus; course notes)
+
+				<p>
+
+				<b> Past courses</b>
+				
+				<br>
+
+
+				Seminar in metaphysics (winter 2021) 
+			
+				<br>
+				
+				
+				MA independent study (summer 2020; topic:
+transformative experience)
+
+				<br>
+		
+							
+				History of analytic philosophy (winter 2019)
+
+				<br>
+			
+		
+				Seminar in metaphysics (fall 2018; topic: modal logic and
+metaphysics)
+				
+				<p>
+				<b>At Toronto</b> 
+				<br>
+
+				Seminar in metaphysics (winter 2018; topic: contemporary
+metaphysical systems)
+				<br>
+				Knowledge and reality (fall 2017)
+
+				<br>
+				
+				The Socrates Project (2017-18 AY; advanced undergraduate
+research and teaching seminar)
+
+
+				<h2>Resources</h2>
+
+			<a href="./docs/propositions.bib"
+target="_blank">propositions.bib</a> (.bib for Routledge Handbook)				
+				
+				<br>
+
+				<a href="https://github.com/adam-r-m/i3"
+target="_blank">i3wm</a> (.config for desktop shell) 
+
+				<br>
+
+				<a href="https://github.com/adam-r-m/vim"
+target="_blank">vim</a> (vim config files, incl. vimtex) 
+
+				<br>
+
+				<a href="https://github.com/adam-r-m/bash-etc"
+target="_blank">bash, etc.</a> 
+
+				<br>
+
+				<a href="https://github.com/adam-r-m/tex"
+target="_blank">TeX, etc.</a> 
+	
+			
+
+				<h2>Contact</h2>
+				
+				<p>
+				457 University College; The University of
+				Manitoba
+				
+				
+				<br>
+				Winnipeg, Manitoba
+				<br>
+				Canada R3T 2M8
+				
+				<br>
+				tel. 204.272.1657
+
+				<br>
+				mail: <span style = "font-family:type;
+font-size:18px;"> adam.murray@umanitoba.ca
+
+
+<!--
+
+
+
+<div class="container space-around">
+
+
+ <div> <a href="https://github.com/adamrussellmurray">
+				<img src="./icons/icons8-github-48.png">
+				</a>	 </div>
+
+ <div> <a href="https://github.com/adamrussellmurray/i3wm">
+				<img src="./icons/icons8-linux-50.png">
+				</a>	 </div>
+
+ <div> <a href=<"https://github.com/adamrussellmurray/configurations">
+				<img src="./icons/tex.png">
+				</a>	 </div>
+
+
+</div>
+
+-->
+
+
+		
+				
+
+
+				<br>
+
+				<br>
+
+<div class="wrapper"> 
+			<img class="pic" src="./img/me.JPG">
+<br>
+		
+<span style = "font-size:15px;"> &nbsp @ old pinawa dam; photo by 
+<a
+href="https://jessewarkentin.com" target="_blank"> <span style =
+"font-size:15px;">Jesse Warkentin
+</a>
+
+	</div>
+
+
+
+
+<br>
+
+
+
+
+
+<!--
+
+			
+			
+	<h2> Resources</h2>
+
+				<a href="mailto:adam.murray@umanitoba.ca">
+				<img src="./img/GitHub-Mark-32px.png">
+				</a>	  
+
+-->
+
+
+				
+
+
+				
+			
+            </div>
+        </div>
+    </body>
+</html>
+
