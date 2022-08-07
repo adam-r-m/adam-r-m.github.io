@@ -245,10 +245,14 @@ specific font. We usea
 		  justify-content: space-between;
 			}
 
- a:target:after{
-            content: " Test";
-            background-color: #ccffcc;
-         }
+summary {
+  list-style-type: none; /* Firefox */
+}
+
+summary::-webkit-details-marker {
+  display: none; /* Chrome */
+}
+
 
         </style>
     </head>
@@ -463,20 +467,7 @@ propositions.
 </details>
 
 
-
-
-
-PHIL 2200: Intermediate Logic
-
-
-		    <div style="line-height:50%;">
-    <br>
-</div>
-
-PHIL 7160: Seminar in Metaphysics (Topic: 1200: Introduction to Philosophy
-
-
-	<h3>Past courses</h3>
+<h3>Recent</h3>
 
 [2021] (f) Theory of Knowledge; Introduction to Logic (
 				
