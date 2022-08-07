@@ -438,31 +438,26 @@ propositions.
 
 <h3>22-23 AY</h3>
 
-<div id="div">
-	<p>Click to hide!</p>
-</div>
-<script type="text/javascript">
-	const div = document.getElementById("div");
-	div.addEventListener("click", function() {
-		// hide element: element.hidden = true;
-		// show element: element.hidden = false;
-		div.hidden = true;
-	});
-</script>
-
-
-
-<a name="16:10" onclick="ShowAndHide('text1')" href="javascript:void(0);">16:10</a>
-
 <script language="JavaScript">
-   function ShowAndHide(id)
-    {
-        document.getElementById(id).style.display = "block";
-    }
-</script>
 
-<div id="text1" style="display:none;">This is your monitors aspect ratio.</div>
+function showStuff(id, text, btn) {
+    document.getElementById(id).style.display = 'block';
+    // hide the lorem ipsum text
+    document.getElementById(text).style.display = 'none';
+    // hide the link
+    btn.style.display = 'none';
+}
+  </script>
 
+<td class="post">
+
+<a href="#" onclick="showStuff('answer1', 'text1', this); return false;">Edit</a>
+<span id="answer1" style="display: none;">
+<textarea rows="10" cols="115"></textarea>
+</span>
+
+<span id="text1">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</span>
+</td>
 
 
 PHIL2200: Intermediate Logic
