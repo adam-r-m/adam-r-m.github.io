@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: hmw_dd.aux
+The style file: newbenj.bst
+Database file #1: mind.bib
+Repeated entry---line 24589 of file mind.bib
+ : @article{Lemmon1966-LEMASF-3
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 24749 of file mind.bib
+ : @article{Kripke1963-KRISAO
+ :                           ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "fritz11" isn't style-file defined
+--line 34159 of file mind.bib
+Repeated entry---line 52153 of file mind.bib
+ : @incollection{Israel1996-ISRWMD
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 52171 of file mind.bib
+ : @article{Rabern2013-RABTMQ
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 52233 of file mind.bib
+ : @article{Schlenker2002-SCHAPF-4
+ :                                ,
+I'm skipping whatever remains of this entry
+Warning--missing publisher in lewis86intro
+Warning--missing publisher in murraywilson12
+Warning--missing publisher in stalnaker94
+You've used 163 entries,
+            2887 wiz_defined-function locations,
+            1454 strings with 20539 characters,
+and the built_in function-call counts, 118185 in all, are:
+= -- 13798
+> -- 2210
+< -- 168
++ -- 1297
+- -- 601
+* -- 5503
+:= -- 14192
+add.period$ -- 533
+call.type$ -- 163
+change.case$ -- 916
+chr.to.int$ -- 152
+cite$ -- 166
+duplicate$ -- 12207
+empty$ -- 7464
+format.name$ -- 861
+if$ -- 23638
+int.to.chr$ -- 12
+int.to.str$ -- 1
+missing$ -- 1228
+newline$ -- 839
+num.names$ -- 698
+pop$ -- 4278
+preamble$ -- 1
+purify$ -- 841
+quote$ -- 0
+skip$ -- 6827
+stack$ -- 0
+substring$ -- 5923
+swap$ -- 9404
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1335
+warning$ -- 3
+while$ -- 789
+width$ -- 0
+write$ -- 2129
+(There were 5 error messages)

@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: hmw_dd.aux
+The style file: newbenj.bst
+Database file #1: mind.bib
+Repeated entry---line 24631 of file mind.bib
+ : @article{Kripke1963-KRISAO
+ :                           ,
+I'm skipping whatever remains of this entry
+Warning--entry type for "fritz11" isn't style-file defined
+--line 34041 of file mind.bib
+Repeated entry---line 52035 of file mind.bib
+ : @incollection{Israel1996-ISRWMD
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 52053 of file mind.bib
+ : @article{Rabern2013-RABTMQ
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 52115 of file mind.bib
+ : @article{Schlenker2002-SCHAPF-4
+ :                                ,
+I'm skipping whatever remains of this entry
+Warning--missing publisher in lewis86intro
+Warning--missing publisher in murraywilson12
+Warning--missing publisher in stalnaker94
+You've used 158 entries,
+            2887 wiz_defined-function locations,
+            1422 strings with 19847 characters,
+and the built_in function-call counts, 113493 in all, are:
+= -- 13183
+> -- 2147
+< -- 163
++ -- 1241
+- -- 584
+* -- 5311
+:= -- 13707
+add.period$ -- 517
+call.type$ -- 158
+change.case$ -- 889
+chr.to.int$ -- 147
+cite$ -- 161
+duplicate$ -- 11689
+empty$ -- 7209
+format.name$ -- 838
+if$ -- 22704
+int.to.chr$ -- 12
+int.to.str$ -- 1
+missing$ -- 1191
+newline$ -- 814
+num.names$ -- 676
+pop$ -- 4108
+preamble$ -- 1
+purify$ -- 816
+quote$ -- 0
+skip$ -- 6502
+stack$ -- 0
+substring$ -- 5642
+swap$ -- 8956
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 1290
+warning$ -- 3
+while$ -- 761
+width$ -- 0
+write$ -- 2064
+(There were 4 error messages)

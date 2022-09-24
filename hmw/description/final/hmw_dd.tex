@@ -1,0 +1,554 @@
+\documentclass[12pt]{article}
+
+\usepackage[paperwidth=8.5in,paperheight=11in,top=.75in,left=.75in,right=.75in,bottom=.75in]{geometry} 
+
+
+\usepackage{amsmath,mathtools,latexsym, ifthen, calc}
+\vfuzz10pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz10pt % Don't report over-full h-boxes if over-edge is small
+\usepackage{xspace}
+\usepackage{abbrevs, nth}
+\usepackage[nodisplayskipstretch]{setspace}
+\usepackage[compress]{natbib}
+\usepackage{txfonts}
+
+\bibpunct{(}{)}{,}{a}{}{,}
+\setcitestyle{numbers,square}
+
+\defcitealias{crossleyhumberstone77}{Crossley-H'stone 1977}
+\defcitealias{davieshumberstone81}{Davies-H'stone 1981}
+
+
+%Murray-addd (editing)
+\usepackage{color, soul}
+\usepackage{comment}
+
+
+\begin{document}
+
+
+% \subsection*{Detailed description}
+
+
+
+
+\subsubsection*{Detailed Description}
+
+
+\paragraph{Context} The context for our project consists, centrally, of (I) the
+well-known relational (`possible-worlds') semantics for modal propositional
+logic and its various extensions to modal predicate logic, a technical
+resource first flourishing from the late 1950s and over the course of the
+1960s. The context is filled out by two branches from this central component,
+each of them first flourishing from the late 1960s over the course of the
+1970s: (II) the `modal metaphysics' tradition of reading metaphysical
+interpretations into the technical resources from (I) and/or invoking these
+resources to shed light on pre-existing metaphysical questions; and (III) the
+`modal pragmatics' tradition of extending the resources from (I) to
+accommodate the broadly pragmatical phenomena of context-sensitivity and
+speech-act content.
+
+\smallskip{}
+
+(I) Contemporary research into the logic of modalities commenced in the
+opening third of the twentieth century, with CI~Lewis's syntactic exploration
+in \citep{lewislangford32} of a variety of systems of intensional logic;
+roughly concurrently, the conception of a possible-worlds semantics was
+nascent in Wittgenstein's \emph{Tractatus} \citep{witttlp}, with its informal
+theory of sentence-meanings as truth-conditions on possible states of affairs.
+The 1940s witnessed Carnap's gradual accretion
+\citep{carnapis,carnap46,carnapmn} of certain central elements of a
+\emph{Tractatus}-inspired possible-worlds semantics for an elementary modal
+predicate logic (with its propositional fragment the strongest non-trivial
+modal propositional system, Lewis's $\mathsf{S5}$, and the modality
+interpreted as a universal quantifier over worlds); alongside this early
+semantical work came Ruth Barcan's \citep{barcan46b,barcan46a,barcan47}
+contributions to the development of axiomatic modal predicate logic.
+Over the course of the 1950s, efforts by a number of authors would
+gradually integrate these semantical and syntactical strands, culminating
+in the near-simultaneous publication by Hintikka \citep{hintikka},
+Bayart \citep{Bayart1959-BAYQDL}, and Kripke \citep{kripke59} of
+completeness proofs for quantified $\mathsf{S5}$, and later by Kripke
+\citep{Kripke1963-KRISAO} for many sub-$\mathsf{S5}$ propositional
+systems.\footnote{For detailed analysis of this period, see
+\citep{copeland02}: signal works discussed are
+\citep{McKinsey1948-MCKSTA,jonsson-tarski,jonsson-tarski-2,vonwright53,meredithprior56,montague60,kripke59,kripke63,Hintikka1961-HINMAQ,Lemmon1966-LEMASF-3}.}
+
+The apparatus of relational semantics for propositional modal languages is
+robust, and familiar in philosophy: a `frame' pairs a set of `possible worlds'
+with an `accessibility relation' over them; a set of frames $\mathbf{F}$
+characterizes a propositional modal system $\mathsf{S}$ as the set of all
+sentences true under any valuation in any world from any frame in
+$\mathbf{F}$, where, in particular, for a frame with accessibility 
+relation $R$, $\Box\phi$
+is true in world $w$ just if $\phi$ is true in world $w'$ whenever $R(w, w')$.
+The strength of $\mathsf{S}$ varies (in a richly-explored manner) with the
+constraints on `accessibility': so the set of all equivalence frames (with $R$ an
+equivalence relation) characterizes the system $\mathsf{S5}$ (the normal modal
+system with axioms \emph{T}: $\Box p \supset p$; \emph{4}: $\Box p \supset
+\Box\Box p$; and \emph{B}:  $p \supset \Box\Diamond p$); while the set of all
+reflexive, transitive frames characterizes the system $\mathsf{S4}$ (with
+axioms \emph{T} and \emph{4}); and so forth.\footnote{Overviews of these
+issues abound; a small selection:
+\citep{chellas80,Cresswell1996-CREANI-3,blackburn-ml}.} 
+
+Semantical analysis of modal predicate languages is perforce more complex, its
+robustness attenuated proportionately, with the most straightforward
+`Carnapean' implementation impeded by immediate philosophical worries. That
+implementation enriches relational semantics with an individual domain, while
+analyzing $Fa$ as true in $w$ just if $F$ is satisfied in $w$ by the
+denotation of $a$ (perhaps, following Carnap, by the $w$-value of the
+`individual concept' assigned to $a$), and $\forall x\,Fx$ as true in $w$ just
+if $F$ is satisfied in $w$ relative to the entire domain: but these analyses
+validate $\Box\exists x\,x = a$ (`necessarily, $a$ is something') and
+represent quantifiers and modals as freely commutable, yielding the
+so-called `Barcan Equivalence' of $\Box\forall x\,\phi$ and $\forall
+x\,\Box\phi$---thus predicting the putatively unattractive necessity of
+existence and nonexistence. Weaker systems require more intricate
+characterizing semantical analyses; an assortment have been proposed, each
+facing generally recognized shortfalls of either technical or conceptual
+adequacy. Such shortfalls are mirrored in attendant complications to the
+underlying (axiomatically characterized) logic: `classical' modal predicate
+logic in the style of Barcan and Carnap is sound and complete relative to the
+straighforward semantical implementation noted above, and thus includes both
+$\Box\exists x = a$ and the Barcan Equivalence as theorems.\footnote{For a
+systematic, opinionated overview of the technical options, see
+\citep{garson84,Garson2005-GARUQM-2,Garson2006-GARMLF}, and \citep[Ch.\
+3]{Williamson2013-WILMLA-2}.} 
+
+\smallskip{}
+
+(II) Shortly following (or sometimes concurrently and in concert with) these
+technical developments, theorists came to notice a variety of applications,
+particularly in the analysis of the conceptual repertoire of the natural
+sciences (e.g., laws of nature); and also a variety of interpretive challenges, pertaining especially
+to ontology (among these latter are `Chisholm's Paradox' from the Summary
+description, and also the `Barcanite' issue just now briefly sketched). This
+cluster of applications and challenges has over the interim coalesced into an
+identifiably, if somewhat diffusely, interconnected literature on `modal
+metaphysics', with its highly influential touchstone works Kripke's
+\citep{kripke72} and DK~Lewis's \citep{lewis86} (notably also:
+\citep{Plantinga1974-PLATNO,VanInwagen1990-VANMB,sider01,finetime,Hawthorne2006-HAWME}).
+We now sketch three such challenges fitting the
+\textsc{stability}/\textsc{dependence} structure noted in the
+Summary---severally cutting across the syntactic and semantic strands
+addressed in (I), and collectively illustrating the broad significance of
+\emph{modal perspective}.
+
+(A) An \emph{undermining} puzzle about laws of nature. A \textsc{stability}
+principle here would exclude inter-world variability in the truth-value of
+$\varphi$ whenever it is a \emph{law of nature} that $\varphi$. 
+On its behalf, \emph{necessitarians}
+cite the explanatory power of appeals to law: if we answer the question `why,
+if it goes up, will it come down?'\ with `it is a law of nature that what goes
+up comes down', necessitarianism virtuously avoids the peculiar further
+question `OK, but what distinguishes this case from a case in which 
+it is a law of nature that what goes up comes down, but things can go up
+without coming down?'.\footnote{For defense, see \citep{loewer96,loewer12};
+and in the context of the undermining puzzle, \citep[p.~247]{finevn}.} If, as
+is generally agreed, the logic of metaphysical necessity is $\mathsf{S5}$,
+this necessitarian reasoning excludes such variability.
+
+But a powerful case for \textsc{dependence} (admitting such variability) comes
+from the idea that the laws of nature should be sensitive to the `categorical'
+facts on the ground---on pain of being `brute', inexplicable sources of
+constraint without reciprocal responsibility to the categorical---an idea
+incorporated by leading theories of laws: perhaps the laws are the simplest,
+strongest systematization of the categorical facts (`Humean' laws); or perhaps
+properties carry their causal powers essentially, and the laws are generated by the
+categorical fact that exactly \emph{these} properties are instantiated
+(`Aristotelian' laws). But this sensitivity predicts
+\emph{undermining}---actual categorical facts yielding actual laws permitting
+categorical facts yielding different laws permitting different categorical
+facts: perhaps \emph{richly}, permitting actually forbidden possibilities; or
+perhaps \emph{leanly}, forbidding actualities. Within the literature,
+\textsc{dependence} theorists forego the explanatory power of
+necessitarianism; though the prospect exists of `accessibilism' (as under (B))
+for metaphysical necessity (abandoning \emph{transitivity} for \emph{rich}
+undermining, or \emph{symmetry} for \emph{lean} undermining).\footnote{Humean:
+\citep[sec.~3.3]{lewis73}; Aristotelian: \citep{shoemaker80}. Humean
+undermining: \citep[p.~20]{lewis86}; Aristotelian undermining:
+\citep[sec.~3.1]{carroll94}, \citep[p.~244--5]{finevn}; `undermining':
+\citep[p.~xv]{lewis86intro} on \citep{lewis80}---compare
+\citep[p.~246n16]{finevn}.} 
+
+(B) \emph{Chisholm's Paradox} of individual essence. Recall the `Summary'
+example of hammer $H$ actually built from iron+oak: the \textsc{stability}
+principle moves from \emph{$H$ could (metaphysically) not have been built from
+lead+elm} and its metaphysical necessity, along with the $\mathsf{S5}$ logic
+of the latter to the unavailability of any possible world verifying \emph{$H$
+could have been built from lead+elm}; while the \textsc{dependence} principle
+proceeds from \emph{$H$ could have been built from iron+elm} together with
+reasoning by parity between actuality and an iron+elm-world (single-part
+replacements are possible in both or neither) to the truth at an
+iron+elm-world of \emph{$H$ could have been built from lead+elm}.
+
+Within the literature, some resolutions of the conflict abandon
+\textsc{stability}: whereas with (A), the \emph{it is a law of nature}
+operator may be weakened below $\mathsf{S5}$, the only operator available for
+such weakening in (B) is \emph{metaphysical necessity}. One such strategy
+adopts an `accessibilist' structure for metaphysical necessity, declaring a
+world in which $H$ is made from lead+elm to be actually `inaccessible' (and
+thus impossible) but `accessible' from an iron+elm-world (and thus `possibly
+possible'). But a sub-$\mathsf{S5}$ logic is also attainable via a
+`counterpart' semantics, according to which the shifts in index-world induced
+by a modal operator can adjust the individual concept assigned to an embedded
+term: then we may allow that, contrasting the actual world $a$ with an
+iron+elm-world $w$, indexing to the one rather than the other shifts the
+individual concept for `$H$' so that, in a lead+elm-world $w^{\prime}$,
+indexing to $w$ yields (in $w^{\prime}$) a lead+elm aggregate but indexing to
+$a$ does not---thereby verifying in $a$ both \emph{$H$ could not have been
+built from lead+elm} and \emph{possibly, $H$ could have been built from
+lead+elm} (the former because the index for `could' is fixed to $a$, and the
+latter because the embedding modal shifts it to $w$).\footnote{Accessibilism:
+\citep{chandler76,salmon81,salmon89}; objections: \citep[pp.~246--8]{lewis86},
+\citep[sec.~8.3]{williamson90}. Counterpart theory:
+\citep{lewis68,lewis71cptb,Lewis93cpxap}; as a semantics:
+\citep{fara08,fara12}, \citep[sec.~3.2.2]{hmw}; objections:
+\citep{Hazen1979-HAZCSF,Woollaston1994-WOOCTA-3,Fara2005-FARCAA,Fara2009-FARDH};
+and CP: \citep{forbes84}, \citep[p.~248]{lewis86}; objections:
+\citep[sec.~8.3]{williamson90}.}
+
+Other resolutions abandon \textsc{dependence}: `mereological essentialism'
+rejects \emph{$H$ could have been built from iron+elm} (dually,
+`antiessentialism' admits \emph{$H$ could have been built from lead+elm});
+while a `sharp cutoff' view denies any legitimacy to reasoning by parity from
+an iron+elm-world: folks there accept \emph{$H$ could have been built from
+lead+elm}, but are brutely wrong in doing so.  Still other resolutions
+preserve both \textsc{stability} and \textsc{dependence} by positing a tacit
+`shift' in \emph{de re} subject-matter as attention tracks $H$ from $a$ over
+to the iron+elm world $w$: then we may allow that our focus in $w$ is not $H$
+after all, but rather a materially indiscernible iron+elm aggregate
+$H^{\prime}$ that $H$ entirely overlaps, and which could be made from
+lead+elm---thereby explaining the illusion (in $a$) that it is possible for
+$H$ to be possibly made from lead+elm.\footnote{Essentialism:
+\citep{chisholm67,Chisholm1973-CHIPAE,Chisholm1975-CHIMES,Zimmerman1992-ZIMAAF,Steen2008-STECCC-2};
+objections:
+\citep{Plantinga1975-PLAOME,Wiggins1979-WIGME,Kleinschmidt2014-KLEMAL};
+antiessentialism: \citep{Mackie2006-MACHTM}. Sharp cutoff:
+\citep{williamson90}. Shiftiness:
+\citep{Dorr2021-DORTBO-2,Leslie2011-LESEPA,RobertsonIshii2022-ROBEBT,yagisawa}.} 
+
+(C) A \emph{Barcanite} challenge about the necessity of existence and
+nonexistence. Very briefly: can there be inter-world variability in
+truth-value of statements of ontology (to the effect, perhaps, that the
+cardinality of the existents is exactly such-and-such; or that some individual
+(designated `de re') exists; or that some essential, uniquely individuating 
+predicate is satisfied or not)? On behalf of \textsc{stability} is the broad
+abductive support attaching to the simple Barcan--Carnap logic and semantics
+on which there could \emph{not} be such inter-world variability in the
+existents. But on behalf of \textsc{dependence} is the thought that, for a
+certain human $d$, whether $d$ exists depends on whether their parents engaged
+in appropriate begetting activity: in possibilities where their parents do not so
+engage, matter is not ordered in a way sufficient for $d$ to exist as a human;
+and if $d$ is a human, $d$ is essentially so, and could not possibly exist as
+`contingently nonconcrete'.\footnote{`Barcanists' siding with
+\textsc{stability}:
+\citep{zalta88,linskyzalta94,linskyzalta96,williamson98bp,williamson13}.
+Barcanism and the `contingently nonconcrete': \citep{linskyzalta96},
+\citep[p.~266]{williamson98bp}, \citep{williamson13}. Contingent
+\emph{existence}: \citep[p.~257]{garson84}, \citep[p.~258]{williamson98bp},
+and cites in \citep[ch.~1]{williamson13}; \emph{nonexistence}:
+\citep[pp.~65--6]{kripke63}, \citep[p.~258]{williamson98bp}. The canonical
+`domain relativization' semantics for \textsc{dependence}:
+\citep{kripke63,stalnaker94}; complaints:
+\citep{garson84,Garson2005-GARUQM-2,williamson98bp,williamson13}; taxonomy of
+other strategies: \citep[p.~250]{garson84}; `individual concepts':
+\citep{thomason69,Garson2005-GARUQM-2}. An approach with some affinity to RMM:
+\citep{fineneno}.}
+
+\smallskip{}
+
+(III) The end of the 1960s witnessed breakthroughs in the application of
+intensional semantics to broadly `pragmatic' phenomena, particularly through
+the isolation of an important distinction in the broader category of
+`context-sensitivity', a distinction giving rise to certain logical
+peculiarities. The fundamental technical resource for accommodating these
+phenomena, developed in the early 1970s, was a `two-dimensional' (2D)
+foliation of the earlier intensional semantics. Later in the decade,
+epistemologically-minded theorists located within the expanded approach the
+representational import of its `horizontal' and `diagonal' projections; this,
+in turn, led to the discovery of the `as-counterfactual'/`as-actual' contrast
+in modal perspective mentioned in the Summary.
+
+To expand. A long-standing interest of logicians of tense was the
+`indexicality' of temporary sentences like \emph{the sun is in eclipse} in
+interaction with temporal operators like \emph{always} or \emph{henceforth}:
+analogously to the world-semantics for a contingent sentence like
+\emph{Hamilton was born on Nevis} and the quantificational action of modals, a
+moment-semantics relativizes truth-value to moments of time (perhaps under a
+certain ordering), and analyzes \emph{always} as a universal quantifier over
+moments. The category of `indexicality' was unsettled by Kamp's 1967 discovery
+(\emph{avant le lettre}) of the `rigidifying' action of \emph{now}: the
+apparent logical validity of \emph{$\phi$ just if now, $\phi$} is not
+sustained through embedment under \emph{always}; a generalization to the modal
+case, swiftly observed by DK~Lewis, involves the rigidifying \emph{actually}:
+the apparent logical validity of \emph{$\phi$ just if actually, $\phi$} is not
+sustained through embedment under \emph{necessarily}.\footnote{`Indexicality':
+\citep{montagueprag,montaguepragil,lewis70gs}. `Rigid': \citep{kripke72};
+rigidification: \citep{kamp68,kamp71,Prior1968-PRIN-3,lewis70}.}
+
+The early 1970s subsumed proposals of Kamp and Lewis under a general
+`double-indexing' framework assigning truth-values along two `dimensions' and
+providing a `diagonal' or `real-world' analysis of logical consequence. For
+modals, truth is relativized to both an `index'- and a `context'-world; the
+data of the embedment puzzle are then explained thus: relative to worlds $i$
+and $c$, \emph{necessarily, $\phi$} is true just if for every world $i'$,
+$\phi$ is true relative to $i'$ and $c$, while \emph{actually, $\phi$} is true
+just if $\phi$ is true relative to $c$ and $c$; and $\phi$ is logically valid
+just if (on all frames and valuations) for every world $c$, $\phi$ is true
+relative to $c$ and $c$.\footnote{Double indexation: \citep{segerberg73};
+diagonal consequence:
+\citep{Vlach1973-VLANAT,kaplan77,fritz11,Fritz2014-FRIWIT-2}; opposition:
+\citep{crossleyhumberstone77,davieshumberstone81,Hanson2006-HANANA-5,Hanson2014-HANLTI}.
+`Index'/`context': \citep{lewis80icc}.}
+
+Later in the decade, various theorists noted an affinity to, and thus a
+prospect of interpreting, Kripke's dissociation of metaphysical necessity from
+apriority: \emph{$\phi$ just if actually, $\phi$} is predicted to be logically
+valid and thus presumably apriori---but with its embedment under
+\emph{necessarily} not valid, is predicted to be not metaphysically necessary;
+while the above apriority suggests that \emph{actually, $\phi$} has the same
+epistemic status as $\phi$, so that both are aposteriori if either is---but
+\emph{actually, $\phi$} is predicted to be noncontingent.\footnote{2D and
+Kripke: \citep[pp.~172--3]{lewis75ll},
+\citep{kaplan77,stalnaker78,Evans1979-EVARAC,davieshumberstone81}.}
+
+Late in this literature, `consideration as actual' was coined to label
+reasoning about truth-values along the diagonal; during a mid-1990s resurgence
+of interest, `consideration as counterfactual' was applied to reasoning about
+truth-values along the horizontal. This terminology drove an eventual
+explanatory theory of the Kripkean dissociation: what we care about in valid
+reasoning is security against error about how things \emph{are} (actually);
+while metaphysical necessity is manifestly concerned with how things
+\emph{could be} (counterfactually)---thus, the dissociation stems ultimately
+from a distinction in \emph{modal perspective}.\footnote{`As actual':
+\citep{davieshumberstone81}; `as counterfactual':
+\citep{chalmers96,jackson98}; resurgence:
+\citep{jackson94,lewis94,blockstalnaker99,stalnaker01,chalmersosi,chalmersf2ds,gendlerhawthorne02}.} 
+
+\bigskip{}
+
+\noindent \textbf{Objectives and methodology} \, \,  Despite the roughly
+concurrent appearance and early development of components (II) and (III) of
+the context, each long unfolded in large part or entirely in isolation from
+the other.  Their mutual relevance, as sketched in the Summary, is that each
+puzzle in (II) can be resolved by appeal to the distinction in modal
+perspective from (III): to wit, it is variation in the world considered
+\emph{as counterfactual} which displays the putative \textsc{stability},
+whereas the putative \textsc{dependence} appears varying instead the world
+considered \emph{as actual}---so the appearance of conflict is engendered by
+an equivocation of modal perspective. This observation was to our knowledge
+first published in 2012 by Murray and Wilson \citep{murraywilson12}; what
+has since come to be known as the `Relativized Metaphysical Modality' (RMM)
+program develops the observation in service of a systematic reassessment of a
+variety of subregions of metaphysics. Hellie joined the RMM program as
+the co-supervisor (with Wilson) of Murray's dissertation \citep{murray17}, and
+was the primary drafter of the overview \citep{hmw} (the puzzles in (II) are
+expanded on there in sec.~3, and technicalities of RMM resolutions sketched in
+sec.~4). Responses to RMM have since been published by Yagisawa
+\citep{yagisawa}, Roberts \citep{Roberts2020-ROBTMA-11}, 
+and Dorr, Hawthorne, and Yli-Vakkuri
+\citep{Dorr2021-DORTBO-2}, among others.\footnote{Other reactions to RMM include 
+\citep{LamForthcoming-LAMAIP-2,Clarke-Doane2019-CLAMAA-14,Bassford2020-BASART-3,Glazier2017-GLATDB-3,
+Furtado2020-FURSAT}.} 
+
+The objective of our proposed research is to contribute to the rounding out
+and completion of the RMM program. The considerations involved are broadly
+distributable into: (IV) issues in metaphysics, including the metaphysics of
+science; (V) questions in philosophy of language and philosophical logic;
+and (VI) matters of historical development. Hellie's
+relevant areas of  expertise are more weighted toward the technical and
+historical, with contributions to the program falling primarily under (V)
+and (VI), and in localized subregions of (IV). Murray's areas of expertise
+tend towards the metaphysical and the logical, with contributions to the
+program falling primarily under (IV) and (V), and associated subregions of
+(VI).  Wilson's relevant areas of expertise lie broadly in metaphysics
+(including metaphysics of science) and in metametaphysics (including the
+epistemology of metaphysics), with contributions to the program thus falling
+primarily under (IV) and relevant subregions of (VI).  During the granting
+period, we propose to publish, individually and jointly, a series of papers
+further developing the RMM program as it distributes across these respective
+areas.  This research will then fold into a collaboratively authored book, the
+aim of which will be to provide comprehensive coverage and defense of the RMM
+framework. 
+
+\smallskip{}
+
+(IV) An initial aspect of the metaphysical component involves a canvas of the
+literature for further puzzles fitting the
+\textsc{stability}/\textsc{dependence} schematism and potentially resoluble
+along analogous lines: several examples stand out (preliminarily to a more
+thorough survey). Closely resembling (A) is Lewis's `Big Bad Bug' concerning
+objective chance, with its well-known conflict between the conceptual role of
+chance (a source of \textsc{stability}) and an attractive metaphysics (a
+source of \textsc{dependence}---indeed, the `undermining' considerations in
+(A) are directly analogous to phenomena Lewis so labels).  Resembling aspects
+of both (A) and (B) is a tension between views of metaphysical claims
+(concerning, e.g., the nature of properties) as sensitive to each world's
+deep categorical structure (thus motivating \textsc{dependence} as regards the
+hypotheses of fundamental metaphysics), and conceptions of metaphysical
+inquiry as aimed at the uncovering of universal (and so invariant) truths
+concerning the nature of things (thus motivating \textsc{stability}).  A
+direct application of (C) is a well-known tension (arguably tracing to the
+\emph{Tractatus} case for the necessity of objects, and thus their simplicity,
+and thus a logically perfect language) between the conception of propositions
+as sets of worlds (motivating \textsc{stability} concerning the existence of
+propositions) and the thought that some propositions are `object-involving' or
+\emph{de re} (motivating \textsc{dependence}).\footnote{(A):
+\citep{lewis80sg,lewis86intro,lewis94debugged} and, inter alia,
+\citep{Hall1994-HALCTG,Thau1994-THAUAA,Arntzenius2003-ARNOWW,Loewer2004-LOEDLH,Briggs2009-BRITAO,Pettigrew2013-PETWCN,Caie2015-CAICIT-3}.
+(A + B): \citep{Cameron2007-CAMTCO-2,parsons2013-PARCCA-9, Rosen2006-ROSTLO-2,
+Miller2009-MILDCI-3} (contingentism);
+\citep{Sider1993-SIDVIA,fineem,Fine2011-FINWIM,Schaffer2007-SCHFNT}
+(necessitism).  (C) \citep[2.02--2.0212]{witttlp}; inter alia,
+\citep{Prior1967-PRIPPA-2,stalnaker12}, and citations in
+\citep{Fritz2016-FRIPC-2}: Murray describes the RMM treatment in
+\citep{murray-pdps}.}
+
+A further aspect involves the development of an underlying, explanatory
+picture: how can it be that what is metaphysically necessary makes, in some
+way, an ineliminable appeal to how things actually are? In the present
+context, the 2D apparatus is naturally read as parceling out the component
+inputs to our reasoning about metaphysical necessity into \emph{specific
+facts} and \emph{general principles}---the former component associated with
+the categorical truths about the `contextual' world (the `as-actual'
+coordinate), and the latter with a system of categorical-to-modal conditionals
+(those evaluated as true in every `diagonal' coordinate pair). The overall
+image is of a sort of `bounded naturalism' in metaphysics, in which the limits
+of possibility for the world (so to speak) project from the (arbitrary, brute)
+condition of nature, along (absolutely fixed, principled) vectors of logic.
+This image finds a middle ground between a pure naturalism, on which questions
+of metaphysics (when sensible) are handed over to natural science; and the
+more `apollonian' approach of traditional modal metaphysics, in which
+actuality is constrained by, but has no reciprocal input into, the limits of
+possibility.\footnote{This polarity is typically manifest as an `ethos'
+underlying detailed work, with certain works more representative of an `ideal
+type': \citep{Fine2011-FINWIM,Hawthorne2011-HAWHMA,williamson13} (apollonean);
+\citep{Ladyman2007-LADETM,Price2007-PRIQN} (naturalist). Bounded naturalist
+sympathies appear in, e.g., the case from quantum entanglement to priority
+monism in \citep{Schaffer2010-SCHMTP-2}, and in the case from Minkowskian
+spacetime to perdurantism in \citep{sider01}.}
+
+
+\smallskip{}
+
+(V) Making sense of this bounded naturalism requires delicate follow-on
+investigations in philosophy of language, in order to thread between a dilemma
+of complaints that (D) the true notion of `metaphysical' necessity would
+better apply to our truth in all worlds as-counterfactual, at all worlds
+as-actual; and that (E) the categorical-to-modal conditionals required to
+state `general principles' are inexpressible.
+
+(D) The complaint is developed efficiently using the \emph{undermining} puzzle
+from (II-A). On the view in \citep[sec.~4]{hmw}, the actual world, $a$,
+induces laws of nature verified at just the worlds in a set $L(a)$; among
+these is an `undermining' world $u$ inducing different laws of nature,
+verified at just the worlds in a distinct set $L(u)$. Suppose that this $L(u)$
+contains a world $w$ not in $L(a)$, and thus verifying some sentence $\phi$
+false at every world in $L(a)$: according to the nomological necessitarian,
+this $\phi$ is metaphysically impossible. But why say this? The world $w$ is
+right there, verifying $\phi$, after all.  Although the consideration of the
+actual world $a$ as actual renders $w$ unavailable for consideration as
+counterfactual, $w$ becomes available for consideration as counterfactual upon
+consideration of the undermining world $u$ as actual.  On the traditional
+understanding of metaphysical possibility as the `broadest' variety of
+possibility, attained by lifting absolutely all restrictions on quantification
+over worlds, it would seem that $w$ is metaphysically possible: after all, we
+are speaking about it, apparently requiring our capacity to quantify over
+it---jumps among directions of modal perspective notwithstanding.
+
+Our response invokes Kaplan's famous prohibition on `monsters begat by
+elegance': intensional sentential operators can shift only \emph{indexical}
+coordinates (such as an as-counterfactual world); shifts in \emph{contextual}
+coordinates (such as an as-actual world), are beyond the power of natural
+language.\footnote{\citep[sec.~VIII]{kaplan77};  also
+\citep{lewis80icc,Israel1996-ISRWMD,Schlenker2002-SCHAPF-4,santorio12,Rabern2013-RABTMQ,stalnaker14}.}
+But the complaint in (D) appeals to `monstrous' metaphysical modal operators:
+the troublesome world $w$ is beyond the set $L(a)$ and so no modal operator
+can quantify over $w$ with the contextual world fixed to $a$; upon
+consideration of $a$ as-actual it would require a monstrous shift of the
+contextual world to $u$ in order to bring $w$ within the domain of modal
+quantification.
+
+Why bar monsters? Briefly, an empirical motivation sees the Kamp/Lewis discrimination
+of `indexical' from `contextual' dependence as reflecting a real contrast in
+semantical argument structure: the former a kind of unsaturatedness amenable
+to control by compositional, language-internal mechanisms, with the latter
+reserving control to language-external, contextual factors. 
+For a logical
+motivation, allowing \emph{all} monsters admits a `diagonal necessity'
+operator $\boxbslash$ with $\boxbslash\phi$ a tautology if
+$\phi$ is true down the diagonal, and otherwise a contradiction. 
+However, and drawing upon an observation of Williamson's, the interaction of 
+$\boxbslash$ with phenomena of rigidification 
+would collapse natural-language truth conditions into trivialities, short of
+\emph{ad hoc} restrictions of motivation or expressive power. Securing against
+such collapse thus requires a general ban on `monstrous' operators like
+$\boxbslash$.\footnote{Empirical:
+\citep[pp.~31--2]{lewis80icc}. $\Act$: \citep{williamson09ca}. Collapse:
+compare the \citep{church43c} `slingshot' against \citep{carnapis}; and more
+generally \citep{Neale2001-NEAFF}.} 
+
+
+(E) Over to the other horn: barring monsters would seem to bar the
+categorical-to-modal conditionals articulating `general principles', rendering
+bounded naturalism inexpressible. After all, we grasp these principles by
+shifting the world considered as actual; so a conditional apt to state such
+reasoning would be along such lines as `if things are actually such that
+$\phi$, it is metaphysically necessary that $\psi$'. But in order to have the
+intended result, the \emph{if}-clause must somehow shift the world of the
+\emph{context} against which the consequent is evaluated; and, having barred
+monsters, it cannot do so through the ordinary semantic activity of an
+intensional operator---so unless (indicative) \emph{if}-clauses are somehow
+semantically extraordinary, the intended result is unobtainable, and bounded
+naturalism is inexpressible.  Our response is that \emph{if}-clauses
+\emph{are} semantically extraordinary. An ordinary intensional operator---a
+modal or temporal operator, or the \emph{if}-clause as analyzed by
+Stalnaker/Lewis---adjusts a coordinate against which its operand is evaluated
+during semantic composition. In contrast, the shift of context associated with
+an \emph{if}-clause does not occur during semantic composition, but is instead
+a `postsemantic' effect, occuring only once a fully composed semantic value
+must project a certain propositional content against a specified context
+$c$.\footnote{`Ordinary': \citep[pp.~27--31]{lewis80icc}. `Stalnaker/Lewis':
+\citep{stalnakeratoc,lewis73}. `Postsemantic': \citep{macfarlane14}.
+`Selection': \citep{stalnakeratoc,Cariani2018-CARWDB-6}.}
+ 
+\smallskip{}
+
+(VI) If the distinction in modal perspective has been widely discussed in
+epistemology but scarcely noticed in metaphysics, why? (F) Technical barriers
+include: (1) the logical tools exploited by opponents of \textsc{stability}
+are all older than double indexation (though, contrastingly, a fully
+\emph{semantic} counterpart theory is a relatively recent development); (2)
+the various puzzles are themselves old; (3) pivotal figures Lewis and Kripke
+are, respectively, by admission compartmentalized in thinking about double
+indexation and largely silent about it; (4) the diagonal conception of
+consequence coalesced later than double-indexation, and certain metatheoretic
+oddities render it yet controversial; (5) monster-barring remains
+controversial, with its motivation not generally appreciated; (6) standing
+theories of the conditional are not adeqate to bounded naturalism. (G)
+Conceptual barriers (more speculatively) include: conceptions of metaphysics
+as `apollonian' or `absolute', requiring `objectivity' and excluding
+perspectival input; or as hand in hand with logic, the latter envisaged as in
+tension with perspective sensitivity.\footnote{This sketch is lightly expanded
+upon in \citep[sec.~5]{hmw}.}
+
+
+\eject
+
+%Move to path
+
+\bibliographystyle{newbenj}
+\bibliography{hmw}
+%\bibliographystyle{/home/adam/Dropbox/sshrc/HMW/newbenj}
+%\bibliography{/home/adam/sshrc/HMW/hmw}
+
+
+
+
+
+
+
+
+\end{document}
