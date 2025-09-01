@@ -1,592 +1,128 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXMPK30REN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-CXMPK30REN');
-</script>
-
-
-        <meta charset="utf-8">
-        <meta name="description" content="I'm an assistant professor in the Department of Philosophy at the University of Manitoba.">
-        <meta name="author" content="Adam R. Murray">
-        <!-- Required in order for the mobile device to set the width properly-->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-	
-        <title>Adam Russell Murray</title>
-	    <link rel="icon" type="image/x-icon" href="/img/favicon-3.ico">
-	
-
-        <style>
-
-
-
-            /*The typical way to include some custom font. Note that for the most
-              cases you only need the "regular" version of the font, as each browser can extend
-              upon it to create bold and italic versions automatically*/
-            @font-face {
-                /*How you want this font to be named. Can be anything*/
-                font-family: "Inconsolata";
-                /*The path to the font file, relative to the file with the styling (currently it's this file: index.html)*/
-                src: url('./fonts/Inconsolata-Regular.ttf');
-            }
-
-            /*The same structure follows here*/
-            /*For better web-page load times I suggest to only leave one of the "main-text" fonts in here.
-             (ie: either Radley or SourceSerifPro, not both)*/
-
-		 @font-face {
-                font-family: "type";
-                src: url('./fonts/CourierPrime-Regular.ttf');
-            }
-
-            @font-face {
-                font-family: "Ubuntu";
-                src: url('./fonts/UbuntuMono-Regular.ttf');
-            }
-
-            /*The same structure follows here*/
-            @font-face {
-                font-family: "Garamond";
-                src: url('./fonts/EBGaramond-Regular.ttf');
-            }
-
-            /*The styling of the asterisk "tag" means that this styling will be applied to all of the
-             tags on the page. Every p, a, h1-h6, div, body, etc will have this style*/
-            * {
-                /*So we want all text on the page to be displayed with some
-specific font. We usea
-                 the name of the font we have included above in this property to set the custom font*/
-                font-family: "Garamond";
-                font-size: 14pt;
-                /*font-family: "Radley"; */
-            }
-
-            /*And now we set specific font styling for all h1 elements (the main heading on the web page)*/
-            h1 {
-                font-size:32pt;
-                color: #656565;
-                           }
-
-            h2 {font-size:20pt;}
-
-
-	    	a {text-decoration:none;
-               color: #4D5B5A;
-            }
-
-	    h3 {font-size:15pt;}
-
-
-	    	a {text-decoration:none;
-               color: #4D5B5A;
-            }
-
-
-
-
-            /*The tooltip is structured like <span class="tooltip">icon<span class="tooltiptext">the text</span></span>
-              This would set the style of "icon" text (which is usually a &#9156; symbol)*/
-            .tooltip {
-                /*To distinguish this symbol we set it to have some dotted border at the bottom:
-                 first set its weight (1px), then pattern (dotted), then color (black)*/
-                border-bottom: 1px;
-                /*To distinguish this symbol even more we set it to look bold*/
-                
-            }
-
-	/*This is the code you add to include the tooltip/abstract box: 
-	 <span class="tooltip">&#9156;<span class="tooltiptext">
-	This is about.... </span></span> */
-
-
-	
-
-            /*We are getting into the weird territory of CSS. This combination of selectors can be read as:
-             "for a tooltip that currently has mouse cursor over it, set the visibility property of its
-             child element with class tooltiptext to visible"
-             This does make sense, because <span class="tooltiptext"></span> in our structure (example above) is
-             always inside of <span class="tooltip">...</span>, which makes the former element to be the child
-             of the latter element*/
-            .tooltip:hover .tooltiptext {
-                visibility:visible;
-            }
-
-            /*Now we style the text of the tooltip*/
-            .tooltiptext {
-                /*Setting font-weight to normal, because otherwise it would be bold, since in our structure of the
-                 tooltip <span class="tooltiptext"></span> is a child of <span class="tooltip">...</span>, which would
-                 inherit the bold font-weight from .tooltip*/
-                font-weight:normal;
- 	
-                /*We also set the font-size to be slightly smaller than the main text on the page for breaking contrast*/
-                font-size:10pt;
-
-                /*Optional: instead of aligning text to the left as we do by default, make it justified to the width*/
-                text-align:justify;
-
-                /*We set the border around the tooltiptext to break the contrast again. The order of parameters is the same
-                 as for the border-bottom example above*/
-                border: 2px solid black;
-
-                /*By default we make the tooltiptext invisible, since we want it to show only when the mouse is hovered
-                 on the tooltip*/
-                visibility:hidden;
-
-                /*Set background color explicitly, since otherwise it would be transparent*/
-                background-color: rgb(211,211,211);
-
-                /*z-index can be thought of as a property that describes the layering of elements.
-                 Elements with higher z-index will be drawn in front of the ones with lower z-index*/
-                z-index:1;
-
-                /*These require more detailed explanations*/
-                position:absolute;
-                left: 0;
-                padding:10px;
-                width:(100% - 20px);
-            }
-
-            .page {
-                /*sets the width of the current tag (div.page) to be 80% of body*/
-                width:80%;
-                padding-left:30px;
-            }
-
-            .column {
-                /*This new change also requires more detailed explanations*/
-                position:relative;
-
-                /*sets the current tag (div.column) to display inline i.e: the tags with this
-                 property (all div.column) will be positioned horizontally, rather than vertically*/
-                display:inline-block;
-
-                /*sets the content of this tag (div.column) to start at the top of the block, otherwise
-                 it would start from the bottom*/
-				vertical-align:top;
-
-                /*Makes a small margin (30px) on the right of the column*/
-                margin-right:40px;
-
-                /*sets the width of the current tag (div.column) to be 42.5% of its parent tag (div.page) width*/
-                width:42.5%;
-            }
-
-            /*When the screen width is less than 710px on any device (narrow page)*/
-            @media (max-width: 710px) {
-                .page {
-                    /* Our page layout is basically a single-column, so we want the page to cover the 100%
-                     width of the screen*/
-                    width: 100%;
-                    padding-left:0;
-                }
-
-                .column {
-                    /*We reset a bunch of properties, that were used on the desktop
-                     version, but are not required on the mobile. Plus we set the with
-                     of the column to 90% of the .page div*/
-                    display:block;
-                    width:70%;
-
-                    /*Using these two properties, we can align .column relative to .page
-                     so that it has equal margins on left and right (ie: it is centerd in .page)*/
-                    margin-left:auto;
-                    margin-right:auto;
-                }
-
-                /*Since the page's title is not a part of the column, we need to align it separately*/
-                h1 {
-                    text-align:center;
-                }
-            }
-
-            .cvbutton {
-            color: black;
-            }
-
-            .pic {
-            width: 95%;
-            height: 80%;
-            padding-left:0px;
-		image-orientation: from-image; 
-	  }
-		
-		 .pic2 {
-            width: 30%;
-            height: 30%;
-            padding-left:0px;
-		image-orientation: from-image;
-
-            .wrapper {
-            width: 100%;
-            }
-
-		.container {
-		  display: flex;
-			}
-		.container.space-around {
-		  width: 60%;
-		 padding-left:0px;
-		 justify-left
-		 justify-content: space-around;
-
-		}
-
-		.container.space-between {  
-		 width: 80%;
-		  justify-content: space-between;
-			}
-
-
-
-        </style>
-    </head>
-
-
-
-
-    <body>
-        <div class="page">
-            <h1>Adam Russell Murray</h1>
-            <div class="column">
-
-<p>
-<h2>Bio</h2>
-<p>
-
-I'm an Associate Professor in the <a href="http://umanitoba.ca/philosophy/"
-target="_blank">Department of Philosophy</a> at the <a
-href="http://umanitoba.ca/" target="_blank">University of Manitoba</a>. I work
-on topics at the intersection of logic, metaphysics, and philosophy of
-language. Before starting at the U of M I was a lecturer in the <a
-href="http://philosophy.utoronto.ca/" target="_blank">Department of
-Philosophy</a> at the University of Toronto, where I also did my PhD.  
-</p>
-<p>
-
-For 2025 I'm the acting Graduate Chair in Philosophy at the U of M. If you're a student
-looking for information about our graduate program, feel free to drop me a
-line.  <a href="mailto:adam.murray@umanitoba.ca"> <img
-src="./icons/icons8-important-mail-20.png"> </a>	
-
-</p>
-<style="font-size: 40px;"><b>CV</b><a href="./docs/cv.murray.pdf" target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-<p>
-
-
-<h2>Research</h2>
-
-<h3>Edited book</h3>
-	    
-	    
- <i>The Routledge Handbook of Propositions</i> (with  <a
-href="https://sites.google.com/site/christillman/home" target="_blank">Chris
-Tillman</a>)
- <p>
-					
-<a
-href="https://www.routledge.com/The-Routledge-Handbook-of-Propositions/Tillman-Murray/p/book/9781138282940">
-<img class="pic2" src="./img/props-1.png"></a>					  
-						  
-</p>
-					
-Introduction <a href="./docs/propositions_intro.pdf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-<br>	
-	    
-Contents <a href="./docs/toc.pdf" target="_blank"><span style="color:
-#ff3300">&#8595</span></a> 
-	
-<p style="margin-bottom: 1cm;"></p>
-
-
-
-
-<h3>Articles</h3>
-
-2024. Overlap, Overdetermination, and the Necessity of Origin. <a href="https://rdcu.be/efTKC"target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-</p>
-<p>
-
-2022. Propositional Dependence and Perspectival Shift <a href="./docs/pdps.pdf" target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-	
-</p>
-<p>
-				
-2020. Relativized Metaphysical Modality:
-Index and Context</a> (with <a
-href="http://individual.utoronto.ca/benj/"target="_blank">Benj Hellie</a> and <a
-href="http://individual.utoronto.ca/jmwilson/"target="_blank">Jessica Wilson</a>)		
-<a href="./docs/rmm_ic.pdf" target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-</p>
-<p>
-
-2014. Not the Optimistic Type (with <a
-href="http://bdcaplan.ca/" target="_blank">Ben Caplan</a>, Chris Tillman</a>,
-and <a href="https://sites.google.com/site/brianmcleanphilosophy/"
-target="_blank">Brian McLean</a>) <a href="./docs/notoptimistic.pdf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-</p> 
-<p> 
-
-2013. Spinoza on Essence and Ideal Individuation <a href="./docs/seii.pdf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-			
-</p> 
-<p> 
-
-2012.  Relativized Metaphysical
-Modality (with Jessica Wilson) <a href="./docs/rmm.pdf" target="_blank"><span
-style="color: #ff3300">&#8595</span></a> </p>
-	
-<p style="margin-bottom: 1cm;"></p>
-	
-			
-
-<!--
-          
-<div class="column">
-
-<h2>Teaching</h2>
-
-<h3>Fall 2025</h3>
-	
-PHIL 1300: Introduction to logic
-<a href="./docs/1300.syllabus.pdf" target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-<div style="line-height:50%;">
-   <br>
-</div>
- 
-PHIL 2140: History of analytic philosophy
-<a href="./docs/2170.syllabus.pdf" target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-<h3>Recent</h3>
-
-[24-25] Hyperintensional metaphysics (seminar)
-
-[22-23] Introduction to Philosophy; Graduate seminar (topic: puzzles of modal variation); 
-Intermediate Logic
-
-<div style="line-height:50%;">
-    <br>
-</div>
-
-[21-22] Introduction to logic; Theory of knowledge 
-	
-<div style="line-height:50%;">
-    <br>
-</div>
-
-[20-21] Graduate seminar (topic: modal metaphysics after <i>Naming and Necessity</i>); 
-	Introduction to logic; Theory of knowledge; History of analytic philosophy; MA independent study (topic:
-transformative experience) 
-    
-<h2>Recent talks</h2>
-
-Propositional Harmony (with Chris Tillman): European Congress of Analytic Philosophy; Vienna (August 2023)
- <a href="./docs/harmony.pdf" target="_blank"><span
-style="color: #ff3300">&#8595</span></a> 	
-	 <p>
-
-Plenitude and Modal Paradox: University of Toronto (March 2023)
-
-	 <p>
-		    
-   
-	Selection and Propositional Structure (with Chris
-Tillman): Italian Conference in Analytic Metaphysics and Ontology; L'Aquila (June 2022) 
- <a href="./docs/selection.pdf" target="_blank"><span
-style="color: #ff3300">&#8595</span></a> 	    
-		     <p>
-		    
-		    Barcan Formulas and the Limits of Possibility: University
-of Lisbon (March 2022) <a href="./docs/limits.pdf" target="_blank"><span style="color:
-#ff3300">&#8595</span></a>     
-		    <p>		    
-				Modality and Higher-order Dependence: Yonsei
-				Analytic Philosophy Workshop; Seoul (August 2019)  	<a href="./docs/propdep.pdf" target="_blank"><span
-style="color: #ff3300">&#8595</span></a>
-				<p>
-							
-	Context, Modality, and Propositional Dependence: Birmingham Higher-Order Metaphysics
-				Workshop (June 2019)
-				</p>
-				<p>
-				
-				Symposium talk on Chisholm's Paradox: Pacific
-				APA; Vancouver (April 2019)		<a
-href="./docs/chisholm.pdf" target="_blank"><span
-style="color: #ff3300">&#8595</span></a>
-				<p>
-			</p>
-
--->
-					
-				
-<!--	
-            		      					
-
-<h2>Resources</h2>
-
- propositions.bib (.bib for Routledge Handbook)<a href="./docs/propositions.bib" target="_blank"> <span style="color: #ff3300">&#8595</span></a> 
-
-<div style="line-height:25%;">
-    <br>
-</div>
-
-		
-<details>
-    <summary>linux </summary>
-    <p>
-.config files: 
-	    
- i3wm <a href="./docs/resources/i3wm.conf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-
- terminal <a href="./docs/resources/terminator.conf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-
- mail <a href="./docs/resources/mutt.conf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-
- bash <a href="./docs/resources/zshrc.conf"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
- </p>
-</details>
-
-<details>
-    <summary>vim + tex</summary>
-    <p> 
-
-vimrc (tex plugin for vim)  <a href="./docs/resources/vimrc"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-
-sensible.bst (adapted from phil_review.bst) <a href="./docs/resources/sensible.bst"
-target="_blank"><span style="color: #ff3300">&#8595</span></a> 
-
-  </p>
-</details>
-
-<details>
-
-    <summary>for students </summary>
-    <p>      </p>
-
-
-</details>
-
--->
-
-
-				 		
-<h2>Contact</h2>
-
-<p>
-457 University College
-<br>
-The University of Manitoba	
-<br>
-Winnipeg, Manitoba
-<br>
-Canada R3T 2M8
-<br>
- <a href="mailto:adam.murray@umanitoba.ca"> <img
-src="./icons/icons8-important-mail-20.png"> </a>
-<span style = "font-family:type;
-font-size:18px;"> adam.murray@umanitoba.ca
-
-
-<!--
-
-	<h2> Resources</h2>
-
-
-<div class="container space-around">
-
-
- <div> <a href="https://github.com/adamrussellmurray">
-				<img src="./icons/icons8-github-48.png">
-				</a>	 </div>
-
- <div> <a href="https://github.com/adamrussellmurray/i3wm">
-				<img src="./icons/icons8-linux-50.png">
-				</a>	 </div>
-
- <div> <a href=<"https://github.com/adamrussellmurray/configurations">
-				<img src="./icons/tex.png">
-				</a>	 </div>
-
-
-</div>
-
--->
-
-
-		
-				
-
-
-				<br>
-
-				<br>
-
-<div class="wrapper"> 
-			<img class="pic" src="./img/me.JPG">
-<br>
-		
-<span style = "font-size:15px;"> &nbsp @ old pinawa dam; photo by 
-<a
-href="https://jessewarkentin.com" target="_blank"> <span style =
-"font-size:15px;">Jesse Warkentin
-</a>
-
-	</div>
-
-
-
-
-<br>
-
-
-
-
-
-<!--
-
-			
-			
-
-				<a href="mailto:adam.murray@umanitoba.ca">
-				<img src="./img/GitHub-Mark-32px.png">
-				</a>	  
-
--->
-
-
-				
-
-
-				
-			
-            </div>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CXMPK30REN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CXMPK30REN');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="description"
+        content="I'm an assistant professor in the Department of Philosophy at the University of Manitoba.">
+    <meta name="author" content="Adam R. Murray">
+    <!-- Required in order for the mobile device to set the width properly-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Adam Russell Murray</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon-3.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="page">
+        <h1>Adam Russell Murray</h1>
+
+        <!-- Modify the values in this div to add more pages -->
+
+        <div class="tab">
+            <a href="index.html" class="tablinks firsttablink"><strong>Bio</strong></a>
+            <a href="pages/research.html" class="tablinks">Research</a>
+            <a href="pages/teaching.html" class="tablinks">Teaching</a>
+            <a href="pages/recent-talks.html" class="tablinks">Recent Talks</a>
+            <a href="pages/resources.html" class="tablinks">Resources</a>
         </div>
-    </body>
-</html>
 
+        <div class="column">
+            <p>
+            <h2>Bio</h2>
+            </p>
+            Thanks for visiting.
+            </p>
+            <p>
+                I'm an assistant professor in the <a href="http://umanitoba.ca/philosophy/" target="_blank">Department
+                    of Philosophy</a> at the <a href="http://umanitoba.ca/" target="_blank">University of Manitoba</a>.
+            </p>
+            <p>
+                Before starting at Manitoba I was a lecturer in the <a href="http://philosophy.utoronto.ca/"
+                    target="_blank">Department of Philosophy</a> at the University of Toronto, where I also did my PhD.
+                I work on topics at the intersection
+                of logic, metaphysics, and philosophy of language. I wrote my dissertation
+                on the theoretical significance of context relativity for modal metaphysics,
+                under the supervision of <a href="http://individual.utoronto.ca/jmwilson/" target="_blank">Jessica
+                    Wilson</a> and <a href="http://individual.utoronto.ca/benj/" target="_blank">Benj Hellie</a>.
+            </p>
+            <p>
+                If you are a
+                student looking for information about our undergraduate or
+                graduate programs, feel free to
+                drop me a line. <a href="mailto:adam.murray@umanitoba.ca">
+                    <img src="./icons/icons8-important-mail-20.png">
+                </a>
+
+
+
+            </p>
+            <a class="cvbutton" href="./docs/cv.murray.pdf" target="_blank">
+                <h2>CV</h2>
+            </a>
+
+            <h2>Contact</h2>
+
+            <p>
+                457 University College; The University of
+                Manitoba
+
+                <br>
+
+                Winnipeg, Manitoba
+
+                <br>
+
+                Canada R3T 2M8
+
+                <br>
+                tel. 204.272.1657
+
+                <br>
+                mail: <span style="font-family:type;
+      font-size:18px;"> adam.murray@umanitoba.ca
+
+
+                    <!--
+      <div class="container space-around">
+       <div> <a href="https://github.com/adamrussellmurray">
+                      <img src="./icons/icons8-github-48.png">
+                      </a>	 </div>
+       <div> <a href="https://github.com/adamrussellmurray/i3wm">
+                      <img src="./icons/icons8-linux-50.png">
+                      </a>	 </div>
+       <div> <a href=<"https://github.com/adamrussellmurray/configurations">
+                      <img src="./icons/tex.png">
+                      </a>	 </div>
+      </div>
+      -->
+
+                    <br>
+
+                    <br>
+
+                    <div class="wrapper">
+                        <img class="pic" src="./img/me.JPG">
+                        <br>
+
+                        <span style="font-size:15px;"> &nbsp @ old pinawa dam; photo by
+                            <a href="https://jessewarkentin.com" target="_blank">
+                                <span style="font-size:15px;">Jesse Warkentin
+                            </a>
+                    </div>
+
+        </div>
+    </div>
+</body>
+</html>
